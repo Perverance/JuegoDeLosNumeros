@@ -166,10 +166,4 @@ function resetGame() {
   nuevoBtn.style.color = computedStyle.getPropertyValue("--text-color").trim();
 }
 
-function doTests() {
-  let arr1 = Array.from("9689").map(Number);
-  let arr2 = Array.from("4444").map(Number);
-  console.assert(calculate(arr1, arr2) === "V");
-}
-
 main();

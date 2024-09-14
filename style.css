@@ -1,0 +1,199 @@
+:root {
+  --bg-color: rgb(0, 0, 0);
+  --text-color: rgb(1, 1, 1);
+  --main-color: hsl(0, 0%, 100%);
+  --result: hsl(47, 100%, 76%);
+  --btn-hover: hsl(17, 100%, 46%);
+  --text-hover: hsl(57, 100%, 95%);
+  --accent: hsl(226, 27%, 85%);
+  --width: 350px;
+  --padding: 6px;
+  --result-height: 50px;
+  --result-accent: limegreen;
+  /* @debug: cambiar a 5:*/
+  --results-count: 5;
+  touch-action: pan-x pan-y;
+  height: 100%;
+}
+
+
+
+*,
+*::after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Jetbrains Mono";
+  user-select: none;
+  /* debug */
+  /* outline: 1px solid red; */
+}
+
+*::selection {
+  background-color: var(--accent);
+  color: white;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 1.1rem;
+  overflow-y: hidden;
+  /* @debug restablecer a 100 */
+  /* zoom: 90%; */
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  gap: 15px;
+  /* outline: 1px solid green; */
+}
+
+/* -------------------------------------------------------------------------- */
+
+#header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: var(--width);
+  /* height: var(--result-height); */
+}
+
+.header-title {
+  /* font-weight: 800; */
+}
+
+.header-subtitle {
+  font-family: "IBM Plex Sans";
+  font-size: 0.9em;
+}
+
+
+.reglas {
+  background: var(--main-color);
+  padding: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.results {
+  padding: var(--padding);
+  width: var(--width);
+  min-width: 25ch;
+  height: calc(var(--padding) * 6 + (var(--result-height) * var(--results-count)));
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  outline: 2px solid var(--main-color);
+  outline-offset: -2px;
+}
+
+.result {
+  /* text-overflow: ellipsis; */
+  /* display: block; */
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  height: var(--result-height);
+  background-color: var(--result);
+  margin-bottom: var(--padding);
+}
+
+
+
+.result:not(:first-child) {
+  /* margin-top: var(--padding); */
+}
+
+.result-accent {
+  background-color: var(--result-accent);
+}
+
+.result-sec {
+  background-color: var(--result-sec);
+}
+
+.result:hover {
+  background-color: var(--btn-hover);
+  color: var(--text-hover);
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+button {
+  font-size: 1rem;
+  padding: 10px;
+  border: none;
+  background-color: var(--main-color);
+  color: var(--text-color);
+}
+
+button:hover {
+  background-color: var(--btn-hover);
+  color: var(--main-color);
+}
+
+input {
+  height: 100%;
+  width: var(--width);
+  border: none;
+  /* width: 150px; */
+  background-color: var(--text-color);
+  color: var(--main-color);
+  font-size: 1.3rem;
+  padding: 10px;
+  appearance: textfield;
+  outline: 2px solid var(--main-color);
+  outline-offset: -2px;
+}
+
+.info_bottom {
+  display: flex;
+  gap: 20px;
+}
+
+#num_aleatorio {
+  width: 12ch;
+  text-align: center;
+}
+
+.botones {
+  --gapBotones: 15px;
+  display: flex;
+  width: calc(var(--width));
+  gap: var(--gapBotones);
+}
+
+button {
+  padding: 8px;
+}
+
+button:hover {
+  color: var(--text-hover)
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.info {
+  background-color: var(--main-color);
+  padding: 15px;
+}
+
+.bold {
+  font-weight: 800;
+}
